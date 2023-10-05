@@ -21,4 +21,22 @@ public partial class Polynomial
             else _values.Add(currPower, currCoefficient);
         }
     }
+    
+    
+    public override string ToString()
+    {
+        var isNotFirstMonomial = false;
+        StringBuilder polynomialStr = new();
+        foreach (var value in _values)
+        {
+            if (isNotFirstMonomial && value.Value > 0) polynomialStr.Append('+');
+            isNotFirstMonomial = true;
+            
+            if (value.Key == 0)
+                polynomialStr.Append($"{value.Value}");
+            else if(value.Value != 0) polynomialStr.Append($"{value.Value}x^{value.Key}");
+        }
+
+        return polynomialStr.ToString();
+    }
 }
