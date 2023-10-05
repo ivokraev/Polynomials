@@ -30,11 +30,17 @@ public partial class Polynomial
         foreach (var value in _values)
         {
             if (isNotFirstMonomial && value.Value > 0) polynomialStr.Append('+');
-            isNotFirstMonomial = true;
-            
+
             if (value.Key == 0)
+            {
                 polynomialStr.Append($"{value.Value}");
-            else if(value.Value != 0) polynomialStr.Append($"{value.Value}x^{value.Key}");
+                isNotFirstMonomial = true;
+            }
+            else if (value.Value != 0)
+            {
+                polynomialStr.Append($"{value.Value}x^{value.Key}");
+                isNotFirstMonomial = true;
+            }
         }
 
         return polynomialStr.ToString();
