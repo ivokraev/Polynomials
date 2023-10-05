@@ -5,7 +5,7 @@ namespace Polynomial;
 
 public partial class Polynomial
 {
-    private readonly SortedDictionary<int, int> _values = new();
+    private readonly SortedDictionary<int, int> _values = new(Comparer<int>.Create((x, y) => y.CompareTo(x)));
 
     public Polynomial(string polynomialStr)
     {
