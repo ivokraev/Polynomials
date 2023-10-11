@@ -16,4 +16,12 @@ public partial class Polynomial
 
     [GeneratedRegex(@"\w(?<!\d)")]
     private static partial Regex TermTypeRegex();
+
+    [GeneratedRegex(@"\s+")]
+    private static partial Regex WhitespacesRegex();
+
+    
+    private static string RemoveWhitespaces(string spacedPolynomial) =>
+        WhitespacesRegex().Replace(spacedPolynomial, "");
+    
 }

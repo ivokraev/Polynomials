@@ -9,7 +9,7 @@ public partial class Polynomial
 
     public Polynomial(string polynomialStr)
     {
-        foreach (Match currMonomial in Monomial.Matches(polynomialStr.Trim()))
+        foreach (Match currMonomial in Monomial.Matches(RemoveWhitespaces(polynomialStr).ToLower()))
         {
             if (currMonomial.ToString().Length == 0) continue;
             var monomialValues = MonomialValues.Match(currMonomial.ToString());
